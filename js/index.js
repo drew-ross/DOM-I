@@ -44,8 +44,15 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 const logoImg = document.querySelector('#logo-img');
 const ctaImg = document.querySelector('#cta-img');
 const middleImg = document.querySelector('#middle-img');
+//
+const nav = Array.from(document.querySelector('nav').children);
+
 
 logoImg.setAttribute('src', '../img/logo.png');
 ctaImg.setAttribute('src', '../img/header-img.png');
 middleImg.setAttribute('src', '../img/mid-page-accent.jpg');
+//
+nav.forEach((item, index) => {
+  item.textContent = siteContent.nav[`nav-item-${index + 1}`];
+});
 
