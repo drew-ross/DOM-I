@@ -49,6 +49,7 @@ const nav = Array.from(document.querySelector('nav').children);
 const cta = Array.from(document.querySelector('.cta-text').children);
 const textContentDivs = Array.from(document.querySelectorAll('.text-content'));
 const contact = document.querySelector('.contact');
+const footer = document.querySelector('footer');
 
 logoImg.setAttribute('src', '../img/logo.png');
 ctaImg.setAttribute('src', '../img/header-img.png');
@@ -76,3 +77,5 @@ contact.children[0].textContent = siteContent.contact['contact-h4'];
 contact.children[1].textContent = siteContent.contact['address'];
 contact.children[2].textContent = siteContent.contact['phone'];
 contact.children[3].textContent = siteContent.contact['email'];
+
+footer.firstElementChild.textContent = siteContent.footer.copyright;
