@@ -47,6 +47,8 @@ const middleImg = document.querySelector('#middle-img');
 //
 const nav = Array.from(document.querySelector('nav').children);
 const cta = Array.from(document.querySelector('.cta-text').children);
+const textContentDivs = Array.from(document.querySelectorAll('.text-content'));
+const contact = document.querySelector('.contact');
 
 logoImg.setAttribute('src', '../img/logo.png');
 ctaImg.setAttribute('src', '../img/header-img.png');
@@ -58,3 +60,19 @@ nav.forEach((item, index) => {
 cta.forEach((item) => {
   item.textContent = siteContent.cta[item.tagName.toLowerCase()];
 });
+
+function addTextContent(divIndex, contentKey) {
+  textContentDivs[divIndex].firstElementChild.textContent = siteContent['main-content'][`${contentKey}-h4`];
+  textContentDivs[divIndex].lastElementChild.textContent = siteContent['main-content'][`${contentKey}-content`];
+}
+
+addTextContent(0, 'features');
+addTextContent(1, 'about');
+addTextContent(2, 'services');
+addTextContent(3, 'product');
+addTextContent(4, 'vision');
+
+contact.children[0].textContent = siteContent.contact['contact-h4'];
+contact.children[1].textContent = siteContent.contact['address'];
+contact.children[2].textContent = siteContent.contact['phone'];
+contact.children[3].textContent = siteContent.contact['email'];
