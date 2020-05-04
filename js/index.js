@@ -41,21 +41,28 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
+//
 const logoImg = document.querySelector('#logo-img');
 const ctaImg = document.querySelector('#cta-img');
 const middleImg = document.querySelector('#middle-img');
 //
-const nav = Array.from(document.querySelector('nav').children);
+const navArray = Array.from(document.querySelector('nav').children);
 const cta = Array.from(document.querySelector('.cta-text').children);
 const textContentDivs = Array.from(document.querySelectorAll('.text-content'));
 const contact = document.querySelector('.contact');
 const footer = document.querySelector('footer');
+//
+const nav = document.querySelector('nav');
+const navItems = nav.querySelectorAll('a');
+
+
+////
 
 logoImg.setAttribute('src', '../img/logo.png');
 ctaImg.setAttribute('src', '../img/header-img.png');
 middleImg.setAttribute('src', '../img/mid-page-accent.jpg');
 //
-nav.forEach((item, index) => {
+navArray.forEach((item, index) => {
   item.textContent = siteContent.nav[`nav-item-${index + 1}`];
 });
 cta.forEach((item) => {
@@ -79,3 +86,18 @@ contact.children[2].textContent = siteContent.contact['phone'];
 contact.children[3].textContent = siteContent.contact['email'];
 
 footer.firstElementChild.textContent = siteContent.footer.copyright;
+//
+navItems.forEach(item => {
+  item.style.color = 'green';
+})
+
+const navExtras = document.createElement('a');
+navExtras.textContent = 'Extras';
+navExtras.setAttribute('href', '#');
+
+const navHome = document.createElement('a');
+navHome.textContent = 'Home';
+navHome.setAttribute('href', '#');
+
+nav.appendChild(navExtras);
+nav.prepend(navHome);
